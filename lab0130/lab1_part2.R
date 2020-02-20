@@ -40,7 +40,25 @@ multivariates <- read.csv("multivariate.csv")
 attach(mutlivariates)
 
 Homeowners <- multivariates$Homeowners
-Immgrant <- multivariates$Immigrant
-
-help(lm)
+Immigrant <- multivariates$Immigrant
 #lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis 
+mm<-lm(Homeowners ~ Immigrant)
+mm
+summary(mm)
+summary(mm)$coef
+#lm is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis 
+#This function adds one or more straight lines through the current plot.
+#Tilde (~): used to connect the response variable (to the left of the tilde) and the independent variable (to the right of the tilde) in the formula
+#That is, the function f (Homeowners) = Immgrant
+plot(Homeowners~Immgrant)
+
+#This function adds one or more straight lines through the current plot.
+abline(mm)
+abline(mm,col=2,lwd=3)
+
+#These functions access an object's attributes. The first form below returns the object's attribute list. The replacement forms uses the list on the right-hand side of the assignment as the object's attributes (if appropriate).
+attributes(mm)
+#c Combine Values into a Vector or List
+newImmigrantdata <- data.frame(Immigrant = c(0, 20))
+#%>%It is to send the value of the left part to  the right part, and as the first parameter of  the right part, it is the pipeline function.
+mm %>% predict(newImmigrantdata)

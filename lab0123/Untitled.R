@@ -132,5 +132,5 @@ View(EPI_South_Asia)
 
 GEO_South_Asia <-  GEO_subregion[GEO_subregion =="South Asia"]
 View(GEO_South_Asia)
-he
+
 
